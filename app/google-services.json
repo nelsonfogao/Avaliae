@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "921269242077",
+    "project_id": "avaliae1",
+    "storage_bucket": "avaliae1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921269242077:android:d8040b6a2f7a27db577334",
+        "android_client_info": {
+          "package_name": "com.example.avaliae"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921269242077-1anq3mblfll6v9a2co819ube13fmd9l7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-5aVWpx0FBtbfO8mEzpHu6YOm-rbRXAU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921269242077-1anq3mblfll6v9a2co819ube13fmd9l7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
