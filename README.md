@@ -14,5 +14,4 @@ Projeto utilizando login autenticado no firebase, utilização do fireStore crip
 ![Adicao](tela5.png)
 
 ![Visualizacao](tela4.png)
-
 ![Banco_de_dados](Screenshot 2021-03-22 221019.png)
