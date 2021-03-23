@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.avaliae.CriptoString
 import com.example.avaliae.R
 import com.example.avaliae.database.AppUtil
 import com.example.avaliae.database.EmpresaFirestoreDao
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.form_fragment.*
 class FormFragment : Fragment() {
 
     private lateinit var formViewModel: FormViewModel
+    var criptoString = CriptoString()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -72,9 +74,15 @@ class FormFragment : Fragment() {
             buttonEnviar.visibility = View.VISIBLE
         }
         buttonEnviar.setOnClickListener {
+            criptoString.setClearText(formEditTextName.text.toString())
+            var novo = criptoString.getCriptoBase64()
+            val nome = novo
 
-            val nome = formEditTextName.text.toString()
-            val bairro = formEditTextBairro.text.toString()
+            criptoString.setClearText(formEditTextBairro.text.toString())
+            var novoBairro = criptoString.getCriptoBase64()
+
+
+            val bairro =  novoBairro
             var pergunta1 = 0
             var pergunta2 = 0
             var pergunta3 = 0
@@ -114,15 +122,23 @@ class FormFragment : Fragment() {
 
 
             nota = pergunta1 + pergunta2 + pergunta3 + pergunta4 + pergunta5
-            formViewModel.salvarEmpresas(nome,bairro, nota, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, autor)
+            formViewModel.salvarEmpresas(nome!!,bairro!!, nota, pergunta1, pergunta2, pergunta3, pergunta4, pergunta5, autor)
         }
 
 
 
     }
     private fun preencherFormulario(empresas: Empresa){
-        formEditTextName.setText(empresas.nome)
-        formEditTextBairro.setText(empresas.bairro)
+
+
+        criptoString.setCriptoBase64(empresas.nome)
+        var novoNome = criptoString.getClearText()
+
+        criptoString.setCriptoBase64(empresas.bairro)
+        var novoBairro = criptoString.getClearText()
+
+        formEditTextName.setText(novoNome)
+        formEditTextBairro.setText(novoBairro)
 
         if(empresas.pergunta1 == 0){
             radioButtonPergunta1nao.isChecked = true
